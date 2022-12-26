@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+
+{% load bootstrap5 %}
+
+{% bootstrap_css %}
+
+{% bootstrap_javascript %}
+
+{% bootstrap_messages %}
+
+{% load bootstrap_icons %}
+
+{% block content %}
+
+{% load static %}
+ <!-- ======= Hero Section ======= -->
+ <section id="about" class="about">
+    <div class="container" data-aos="fade-up">
+
+      <div class="section-title mt-5">
+        <div class="top_head d-flex justify-content-between">
+          <h4 class="text-success"><strong>TODOLIST</strong></h4>
+          <button class="btn btn-outline-success " type="submit" id="button-addon2"><strong><a href="{% url 'create'%}">ADD NEW</a></strong></button>
+        </div>
+    <div class="table-responsive-md"></div>
+        <table class="table table-bordered">
+          <div>
+            <form action="{% url 'search' %}" method="get">
+              <div class="input-group mb-3">
+              <input type="text" class="form-control" name="q" placeholder="search here" >
+              <button class="btn btn-outline-success" type="submit" id="button-addon2">Search</button>
+            </div>
+          </form>
+        </div>
+
+            <thead>
+              <tr>
+                <th scope="col">TITLE</th>
+                <th scope="col">DESCRIPTION</th>
+
+                <th scope="col"></th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+                
+
+              </tr>
+            </thead>
+            <tbody>
+
+              {% if not items %}
+              <div class="message">
+              <h6 class=""> No Item Found on Your Dashboard please <a href="{% url 'create'%}">Add Item</a> or refresh the page</h6>
+             </div>
+             {% else %}
+
+                {% for item in items %}
+                
+              <tr>
+                
+                <td>{{item.title}}</td>
+                <td>{{item.description}}</td>
+                
+                <td>  {% if item.completed == True %} {% bs_icon 'check-all' color='green' size='1.5em' %} {% else  %} {% bs_icon 'app' color='blue' size='1.5em' %} {% endif%}</td>
+               
+                <td><a href="{% url 'update_task' item.id %}">{% bs_icon 'pencil-square' color='blue' size='1.3em' %}</a></i></td>
+              </tr>
+              
+            {% endfor %}
+
+            {% endif %}
+
+            
+
+
+                
+            </tbody>
+          </table>
+      </div>
+    </div>
+    </div>
+  </section><!-- End About Us Section -->
+
+
+  {% endblock content %}

@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+
+{% load bootstrap5 %}
+
+{% bootstrap_css %}
+
+{% bootstrap_javascript %}
+
+{% bootstrap_messages %}
+
+{% load bootstrap_icons %}
+
+{% block content %}
+
+{% load static %}
+{% block title %}ADD NEW {% endblock title %}
+ <!-- ======= Hero Section ======= -->
+
+ <head>
+  
+ </head>
+ <section id="about" class="about">
+    <div class="container" data-aos="fade-up">
+
+      <div class="section-title mt-5">
+        
+        <div class="container layer2">
+            <div class="row my-5">
+                <div class="col-md-3"></div>
+                <div class="col-md-6 p-4">
+                    <form action="" method="post" class="form">
+                        {% csrf_token %}
+                        <h4 class="text-headert text-success m-3"><strong>POLCOM WHITELIST</strong></h4>
+                
+                          {{form.non_field_errors}}
+                          <div class="form-group">
+                            <div class="input-group">
+                              <span class="input-group-addon"><i class="fa fa-paper-plane"></i></span>
+                                 {{form.phone_number.errors}}
+                                {{form.phone_number}}
+                        
+                            </div>
+                            </div>
+                            <div class="form-group  mt-4 mb-4">
+                          <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                        {{form.names.errors}}
+                        {{form.names}}
+                      </div>
+                        </div>
+                       
+                    <div class="form-group mb-3">
+                      <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                        {{form.address.errors}}
+                        {{form.address}}
+                      </div>
+                        </div>
+                        <div class="form-group mb-3">
+                            <div class="input-group">
+                              <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                              {{form.altenate_num.errors}}
+                              {{form.alternate_num}}
+                            </div>
+                              </div>
+                              <div class="form-group mb-3">
+                                <div class="input-group">
+                                  <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                                  {{form.rank.errors}}
+                                  {{form.rank}}
+                                </div>
+                                  </div>
+                    <div class="form-group mb-3">
+                      <div class="input-group">
+                        <span class="input-group-addon">
+                          <i class="fa fa-lock"></i>
+                          <i class="fa fa-check"></i>
+                        </span >
+                            <div class="d-flex justify-content-between">
+                                {{form.status.errors}}
+                                {{form.status}}
+                                {{form.principal.errors}}
+                                {{form.principal}}
+                            </div>
+                      </div>
+                        </div>        
+                         
+                    <div class="form-group">
+                      <button type="submit" class="btn btn-primary btn-block btn-md bg-success">Sign Up</button>
+                    </div>
+                    <p class="small text-center">By clicking the Sign Up button, you agree to our <br><a href="#">Terms &amp; Conditions</a>, and <a href="#">Privacy Policy</a>.</p>
+                    </form>
+                </div>
+                <div class="col-md-3"></div>
+            </div>
+        </div>
+   
+    </div>
+    </div>
+  </section><!-- End About Us Section -->
+
+ 
+
+  {% endblock content %}

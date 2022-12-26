@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+{% load bootstrap5 %}
+
+{% bootstrap_css %}
+
+{% bootstrap_javascript %}
+
+{% bootstrap_messages %}
+
+{% load bootstrap_icons %}
+
+{% block content %}
+
+{% load static %}
+ <!-- ======= Hero Section ======= -->
+
+ 
+ <section id="about" class="about">
+    <div class="container" data-aos="fade-up">
+
+      <div class="section-title mt-5">
+        <h2>Todolist</h2>
+        <div class="container layer2">
+            <div class="row my-5">
+                <div class="col-md-3"></div>
+                <div class="col-md-6 p-4">
+                  <form >
+                    <div class="form-group">
+                            <H6>You have Successfully logout</H6>
+                
+                            <br>
+                            <br>
+                          
+                        <a href="{% url 'login'%}" class="btn" style="color: white; background-color: #ff0909;"type="submit" id="header-links"> Login </a>
+                        </div>
+                    
+                    </form>
+                </div>
+                <div class="col-md-3"></div>
+            </div>
+        </div>
+   
+    </div>
+    </div>
+  </section><!-- End About Us Section -->
+
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    Launch demo modal
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  {% endblock content %}

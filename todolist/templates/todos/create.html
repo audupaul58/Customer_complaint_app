@@ -1,0 +1,66 @@
+
+
+{% load bootstrap5 %}
+
+{% bootstrap_css %}
+
+{% bootstrap_javascript %}
+
+{% bootstrap_messages %}
+
+{% load bootstrap_icons %}
+
+{% block content %}
+
+{% load static %}
+ <!-- ======= Hero Section ======= -->
+
+ 
+ <section id="about" class="about">
+    <div class="container" data-aos="fade-up">
+
+      <div class="section-title mt-5">
+        <div class="container layer2">
+            <div class="row my-5">
+                <div class="col-md-3"></div>
+                <div class="col-md-6 p-4">
+                    <form  method="post">
+                        {% csrf_token %}
+                
+                        {{form.non_field_errors}}
+                    <h4 class="text-headert text-success"><strong>Add New Task</strong></h4>
+                        <div class="form-group">
+                        </div>
+                        <div class="form-group mb-4">
+                      <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                            {{form.title}}
+                            {{form.title.errors}}
+                
+                      </div>
+                        </div>
+                       
+                    <div class="form-group mb-3">
+                      <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                        {{form.description}}
+                        {{form.description.errors}}
+                      </div>
+                    </div>   
+                    <div class="form-group">
+                            <button type="submit" class="btn btn-success btn-block btn-md">Submit</button>
+                        </div>
+                    
+                    </form>
+                </div>
+                <div class="col-md-3"></div>
+            </div>
+        </div>
+   
+    </div>
+    </div>
+  </section><!-- End About Us Section -->
+
+ 
+
+  {% endblock content %}
